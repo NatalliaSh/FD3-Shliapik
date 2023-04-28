@@ -1,0 +1,19 @@
+.ProductSpecification th {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.ProductSpecification td,
+.ProductSpecification th {
+  padding: 5px;
+}
+
+.ProductSpecification td img {
+  width: 50px;
+}
+
+.ProductSpecification td.price,
+.ProductSpecification td.count {
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+.ProductsBlock {
+  border: 2px solid black;
+}
+
+.ProductsBlock td {
+  border: 1px solid black;
+}
+
+.ProductsBlock th {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid black;
+  padding: 5px;
+}
