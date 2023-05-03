@@ -1,0 +1,11 @@
+.Product td {
+  padding: 5px;
+}
+.Product td img {
+  width: 50px;
+}
+
+.Product__price,
+.Product__count {
+  text-align: center;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ishop</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="Shop.js"></script>
+    <link rel="stylesheet" type="text/css" href="Shop.css" />
+    <script src="Product.js"></script>
+    <link rel="stylesheet" type="text/css" href="Product.css" />
+
+    <script>
+      var productsArr = [
+        {
+          name: 'Каппа Пира маки',
+          id: 'sushi1',
+          price: 11.9,
+          count: 222,
+          imgURL: './img/sushi1.jpg',
+        },
+        {
+          name: 'Бекон Пира маки',
+          id: 'sushi2',
+          price: 15.5,
+          count: 100,
+          imgURL: './img/sushi2.jpg',
+        },
+        {
+          name: 'Ширу маки',
+          id: 'sushi3',
+          price: 9.9,
+          count: 20,
+          imgURL: './img/sushi3.jpg',
+        },
+        {
+          name: 'Мидори маки',
+          id: 'sushi4',
+          price: 8.99,
+          count: 48,
+          imgURL: './img/sushi4.jpg',
+        },
+        {
+          name: 'Сингапур маки',
+          id: ' sushi5',
+          price: 13.9,
+          count: 30,
+          imgURL: './img/sushi5.jpg',
+        },
+        {
+          name: 'Тори Чизу маки',
+          id: 'sushi6',
+          price: 15.5,
+          count: 300,
+          imgURL: './img/sushi6.jpg',
+        },
+        {
+          name: 'Флорида маки',
+          id: 'sushi7',
+          price: 13.99,
+          count: 112,
+          imgURL: './img/sushi7.jpg',
+        },
+      ];
+
+      ReactDOM.render(
+        React.createElement(Shop, {
+          defproducts: productsArr,
+        }),
+        document.getElementById('container'),
+      );
+    </script>
+  </body>
+</html>
