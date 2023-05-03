@@ -29,6 +29,7 @@ var filter = React.createClass({
   },
 
   unsort: function () {
+    console.log(this.state.checked);
     this.filter(this.state.inputText);
   },
 
