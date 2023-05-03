@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="filter.js"></script>
+    <link rel="stylesheet" type="text/css" href="filter.css" />
+
+    <script>
+      var wordsArr = [
+        'california',
+        'everything',
+        'aboveboard',
+        'washington',
+        'basketball',
+        'weathering',
+        'characters',
+        'literature',
+        'contraband',
+        'appreciate',
+      ];
+
+      ReactDOM.render(
+        React.createElement(filter, {
+          defwords: wordsArr,
+        }),
+        document.getElementById('container'),
+      );
+    </script>
+  </body>
+</html>
