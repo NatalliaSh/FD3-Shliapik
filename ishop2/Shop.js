@@ -29,6 +29,15 @@ var Shop = React.createClass({
     this.setState({ checkedProduct: id });
   },
 
+  deleteButtonHandler: function (id) {
+    this.setState((prevState, props) => {
+      var productArr = prevState.products.filter(
+        (element) => element.id !== id,
+      );
+      return { products: productArr };
+    });
+  },
+
   render: function () {
     return React.DOM.table(
       {
@@ -56,10 +65,20 @@ var Shop = React.createClass({
       React.DOM.tbody(
         null,
         this.state.products.map((element) => {
-          return React.createElement(Product, {
-            product: element,
-            cbCheckProductHandler: this.checkProductHandler,
-          });
+          return this.state.checkedProduct === element.id
+            ? React.createElement(Product, {
+                key: element.id,
+                product: element,
+                cbCheckProductHandler: this.checkProductHandler,
+                cbdeleteButtonHandler: this.deleteButtonHandler,
+                style: { backgroundColor: '#f76868' },
+              })
+            : React.createElement(Product, {
+                key: element.id,
+                product: element,
+                cbCheckProductHandler: this.checkProductHandler,
+                cbdeleteButtonHandler: this.deleteButtonHandler,
+              });
         }),
       ),
     );

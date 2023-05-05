@@ -10,19 +10,25 @@ var Product = React.createClass({
       imgURL: React.PropTypes.string.isRequired,
     }),
     cbCheckProductHandler: React.PropTypes.func.isRequired,
+    style: React.PropTypes.object,
+    cbdeleteButtonHandler: React.PropTypes.func.isRequired,
   },
 
-  checkProductHandler: function (code) {
-    console.log(code);
+  checkProductHandler: function (EO) {
+    this.props.cbCheckProductHandler(EO.currentTarget.id);
+  },
+
+  deleteButtonHandler: function (EO) {
+    this.props.cbdeleteButtonHandler(EO.target.dataset.id);
   },
 
   render: function () {
     return React.DOM.tr(
       {
-        key: this.props.product.id,
         id: this.props.product.id,
         className: 'Product',
-        onClick: ({ currentTarget: { id } }) => this.checkProductHandler(id),
+        onClick: (EO) => this.checkProductHandler(EO),
+        style: this.props.style,
       },
       React.DOM.td(
         { className: 'Product__img' },
@@ -36,7 +42,13 @@ var Product = React.createClass({
       React.DOM.td({ className: 'Product__count' }, this.props.product.count),
       React.DOM.td(
         { className: 'Product__control' },
-        React.DOM.button(null, 'Удалить'),
+        React.DOM.button(
+          {
+            'data-id': this.props.product.id,
+            onClick: (EO) => this.deleteButtonHandler(EO),
+          },
+          'Удалить',
+        ),
       ),
     );
   },

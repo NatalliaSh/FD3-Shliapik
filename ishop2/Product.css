@@ -1,6 +1,11 @@
 .Product td {
   padding: 5px;
 }
+
+.Product button {
+  cursor: pointer;
+}
+
 .Product td img {
   width: 50px;
 }
