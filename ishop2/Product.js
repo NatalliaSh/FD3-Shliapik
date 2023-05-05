@@ -10,7 +10,7 @@ var Product = React.createClass({
       imgURL: React.PropTypes.string.isRequired,
     }),
     cbCheckProductHandler: React.PropTypes.func.isRequired,
-    style: React.PropTypes.object,
+    selected: React.PropTypes.bool,
     cbdeleteButtonHandler: React.PropTypes.func.isRequired,
   },
 
@@ -28,7 +28,7 @@ var Product = React.createClass({
         id: this.props.product.id,
         className: 'Product',
         onClick: (EO) => this.checkProductHandler(EO),
-        style: this.props.style,
+        style: this.props.selected ? { backgroundColor: '#f76868' } : null,
       },
       React.DOM.td(
         { className: 'Product__img' },
@@ -45,7 +45,10 @@ var Product = React.createClass({
         React.DOM.button(
           {
             'data-id': this.props.product.id,
-            onClick: (EO) => this.deleteButtonHandler(EO),
+            onClick: (EO) => {
+              this.deleteButtonHandler(EO);
+              EO.stopPropagation();
+            },
           },
           'Удалить',
         ),

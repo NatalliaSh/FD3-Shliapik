@@ -34,6 +34,7 @@ var Shop = React.createClass({
       var productArr = prevState.products.filter(
         (element) => element.id !== id,
       );
+
       return { products: productArr };
     });
   },
@@ -65,20 +66,13 @@ var Shop = React.createClass({
       React.DOM.tbody(
         null,
         this.state.products.map((element) => {
-          return this.state.checkedProduct === element.id
-            ? React.createElement(Product, {
-                key: element.id,
-                product: element,
-                cbCheckProductHandler: this.checkProductHandler,
-                cbdeleteButtonHandler: this.deleteButtonHandler,
-                style: { backgroundColor: '#f76868' },
-              })
-            : React.createElement(Product, {
-                key: element.id,
-                product: element,
-                cbCheckProductHandler: this.checkProductHandler,
-                cbdeleteButtonHandler: this.deleteButtonHandler,
-              });
+          return React.createElement(Product, {
+            key: element.id,
+            product: element,
+            cbCheckProductHandler: this.checkProductHandler,
+            cbdeleteButtonHandler: this.deleteButtonHandler,
+            selected: this.state.checkedProduct === element.id,
+          });
         }),
       ),
     );
