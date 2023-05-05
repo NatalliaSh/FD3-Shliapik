@@ -13,15 +13,22 @@ var filter = React.createClass({
     };
   },
 
-  cbInputChangeHandler: function (text) {
-    this.setState({ inputText: text }, this.filter(text));
+  cbInputChangeHandler: function (text = '') {
+    this.setState((prevState, props) => {
+      var sortedWords = this.state.checked
+        ? this.filter(text).sort().join('\n')
+        : this.filter(text).join('\n');
+
+      return { inputText: text, words: sortedWords };
+    });
   },
 
   filter: function (text) {
-    var filteredWords = this.props.defwords
-      .filter((word) => word.toLowerCase().indexOf(text.toLowerCase()) !== -1)
-      .join('\n');
-    this.setState({ words: filteredWords });
+    var filteredWordsArr = this.props.defwords.filter(
+      (word) => word.toLowerCase().indexOf(text.toLowerCase()) !== -1,
+    );
+
+    return filteredWordsArr;
   },
 
   sort: function () {
@@ -29,8 +36,7 @@ var filter = React.createClass({
   },
 
   unsort: function () {
-    console.log(this.state.checked);
-    this.filter(this.state.inputText);
+    this.setState({ words: this.filter(this.state.inputText).join('\n') });
   },
 
   cbCheckboxChangeHandler: function () {
@@ -40,10 +46,7 @@ var filter = React.createClass({
   },
 
   cbClickButtonHandler: function () {
-    this.setState(
-      { checked: false, inputText: '' },
-      this.cbInputChangeHandler(''),
-    );
+    this.setState({ checked: false, inputText: '' }, this.cbInputChangeHandler);
   },
 
   render: function () {
