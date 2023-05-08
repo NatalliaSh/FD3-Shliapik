@@ -14,20 +14,19 @@ var Product = React.createClass({
     cbdeleteButtonHandler: React.PropTypes.func.isRequired,
   },
 
-  checkProductHandler: function (EO) {
-    this.props.cbCheckProductHandler(EO.currentTarget.id);
+  checkProductHandler: function () {
+    this.props.cbCheckProductHandler(this.props.product.id);
   },
 
-  deleteButtonHandler: function (EO) {
-    this.props.cbdeleteButtonHandler(EO.target.dataset.id);
+  deleteButtonHandler: function () {
+    this.props.cbdeleteButtonHandler(this.props.product.id);
   },
 
   render: function () {
     return React.DOM.tr(
       {
-        id: this.props.product.id,
         className: 'Product',
-        onClick: (EO) => this.checkProductHandler(EO),
+        onClick: this.checkProductHandler,
         style: this.props.selected ? { backgroundColor: '#f76868' } : null,
       },
       React.DOM.td(
@@ -44,9 +43,8 @@ var Product = React.createClass({
         { className: 'Product__control' },
         React.DOM.button(
           {
-            'data-id': this.props.product.id,
             onClick: (EO) => {
-              this.deleteButtonHandler(EO);
+              this.deleteButtonHandler();
               EO.stopPropagation();
             },
           },
