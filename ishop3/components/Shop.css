@@ -1,0 +1,15 @@
+.Shop {
+  border: 2px solid black;
+}
+
+.Shop td {
+  border: 1px solid black;
+}
+
+.Shop th {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid black;
+  padding: 5px;
+}
