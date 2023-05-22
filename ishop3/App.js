@@ -6,8 +6,6 @@ import Shop from './components/Shop';
 let productsArr = require('./products.json');
 
 ReactDOM.render(
-  React.createElement(Shop, {
-    defproducts: productsArr,
-  }),
+  <Shop defproducts={productsArr} />,
   document.getElementById('container'),
 );

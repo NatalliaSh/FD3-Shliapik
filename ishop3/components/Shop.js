@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DOM from 'react-dom-factories';
 
 import './Shop.css';
 
@@ -39,41 +38,35 @@ class Shop extends React.Component {
   };
 
   render() {
-    return DOM.table(
-      {
-        className: 'Shop',
-        style: { borderCollapse: 'collapse' },
-      },
-
-      DOM.thead(
-        null,
-        DOM.tr(
-          { className: 'Shop__header' },
-          DOM.th({ className: 'Shop__header--img' }, 'Товар'),
-          DOM.th(
-            { className: 'Shop__header--name' },
-            'Наименование',
-            DOM.br(null, null),
-            'товара',
-          ),
-          DOM.th({ className: 'Shop__header--price' }, 'Цена'),
-          DOM.th({ className: 'Shop__header--count' }, 'Количество'),
-          DOM.th({ className: 'Shop__header--control' }, 'Control'),
-        ),
-      ),
-
-      DOM.tbody(
-        null,
-        this.state.products.map((element) => {
-          return React.createElement(Product, {
-            key: element.id,
-            product: element,
-            cbCheckProductHandler: this.checkProductHandler,
-            cbdeleteButtonHandler: this.deleteButtonHandler,
-            selected: this.state.checkedProduct === element.id,
-          });
-        }),
-      ),
+    return (
+      <table className='Shop' style={{ borderCollapse: 'collapse' }}>
+        <thead>
+          <tr className='Shop__header'>
+            <th className='Shop__header--img'>Товар</th>
+            <th className='Shop__header--name'>
+              Наименование
+              <br></br>
+              товара
+            </th>
+            <th className='Shop__header--price'>Цена</th>
+            <th className='Shop__header--count'>Количество</th>
+            <th className='Shop__header--control'>Control</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.products.map((element) => {
+            return (
+              <Product
+                key={element.id}
+                product={element}
+                cbCheckProductHandler={this.checkProductHandler}
+                cbdeleteButtonHandler={this.deleteButtonHandler}
+                selected={this.state.checkedProduct === element.id}
+              ></Product>
+            );
+          })}
+        </tbody>
+      </table>
     );
   }
 }

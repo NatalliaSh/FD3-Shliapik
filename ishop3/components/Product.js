@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DOM from 'react-dom-factories';
 
 import './Product.css';
 
@@ -27,34 +26,29 @@ class Product extends React.Component {
   };
 
   render() {
-    return DOM.tr(
-      {
-        className: 'Product',
-        onClick: this.checkProductHandler,
-        style: this.props.selected ? { backgroundColor: '#f76868' } : null,
-      },
-      DOM.td(
-        { className: 'Product__img' },
-        DOM.img({ src: `${this.props.product.imgURL}` }, null),
-      ),
-      DOM.td({ className: 'Product__name' }, this.props.product.name),
-      DOM.td(
-        { className: 'Product__price' },
-        this.props.product.price + ' BYN',
-      ),
-      DOM.td({ className: 'Product__count' }, this.props.product.count),
-      DOM.td(
-        { className: 'Product__control' },
-        DOM.button(
-          {
-            onClick: (EO) => {
+    return (
+      <tr
+        className='Product'
+        onClick={this.checkProductHandler}
+        style={this.props.selected ? { backgroundColor: '#f76868' } : null}
+      >
+        <td className='Product__img'>
+          <img src={this.props.product.imgURL}></img>
+        </td>
+        <td className='Product__name'>{this.props.product.name}</td>
+        <td className='Product__price'>{this.props.product.price + ' BYN'}</td>
+        <td className='Product__count'>{this.props.product.count}</td>
+        <td className='Product__control'>
+          <button
+            onClick={(EO) => {
               this.deleteButtonHandler();
               EO.stopPropagation();
-            },
-          },
-          'Удалить',
-        ),
-      ),
+            }}
+          >
+            Удалить
+          </button>
+        </td>
+      </tr>
     );
   }
 }
