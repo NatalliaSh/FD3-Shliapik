@@ -10,7 +10,7 @@
   width: 50px;
 }
 
-.Product__price,
-.Product__count {
+.Product .Product__price,
+.Product .Product__count {
   text-align: center;
 }
