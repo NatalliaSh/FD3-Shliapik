@@ -10,7 +10,7 @@ class BR2JSX extends React.Component {
     const content = [];
     for (let i = 0; i < textArr.length; i++) {
       if (i) {
-        content.push(<br />);
+        content.push(<br key={i} />);
       }
       content.push(textArr[i]);
     }
