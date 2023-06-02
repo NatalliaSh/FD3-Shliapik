@@ -1,0 +1,10 @@
+.Mobile__tableHeaders {
+  display: flex;
+  font-weight: bold;
+}
+
+.Mobile__tableHeaders div {
+  flex: 0 0 100px;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}

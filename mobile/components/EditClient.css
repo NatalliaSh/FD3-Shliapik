@@ -1,0 +1,9 @@
+.EditClient label {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.EditClient label .fieldName {
+  flex: 0 1 200px;
+}
