@@ -1,0 +1,8 @@
+.Controls {
+  display: flex;
+  width: max-content;
+}
+
+.Controls button {
+  margin-left: 10px;
+}

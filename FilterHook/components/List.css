@@ -1,0 +1,9 @@
+.List {
+  margin: 10px 0;
+  padding: 0 5px;
+  white-space: pre-wrap;
+  height: 100px;
+  overflow: auto;
+  width: 200px;
+  border: 2px solid black;
+}
